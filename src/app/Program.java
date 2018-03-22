@@ -4,13 +4,24 @@ public class Program
 {
     public static void main(String[] args)
     {
-        int[] positionOfCharactersInString = new Searcher().getPositionOfCharactersInString(args[0], args[1]);
+        boolean caseSensitive;
+
+        try
+        {
+            caseSensitive = Boolean.getBoolean(args[2]);
+        }
+        catch (Exception ignored)
+        {
+            caseSensitive = true;
+        }
+
+        int[] positionOfCharactersInString = new Searcher().getPositionOfCharactersInString(args[0], args[1], caseSensitive);
 
         StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i < positionOfCharactersInString.length; i++)
+        for (int aPositionOfCharactersInString : positionOfCharactersInString)
         {
-            builder.append(positionOfCharactersInString[i]).append(" ");
+            builder.append(aPositionOfCharactersInString).append(" ");
         }
 
         System.out.println(builder.toString());

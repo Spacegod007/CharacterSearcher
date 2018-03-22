@@ -11,7 +11,9 @@ class SearcherTest
     void getPositionOfCharactersInString()
     {
         String charactersToFind = "";
-        String textToFindCharactersIn = "Besten,\n" +
+        String textToFindCharactersIn =
+
+                "Besten,\n" +
                 "\n" +
                 "Vanuit mijn perspectief had ik mijn best gedaan om iedereen feedback te geven en de laatste les had ik lege queque (niemand dus stond te wachten om nog feedback te vragen).\n" +
                 "\n" +
@@ -33,13 +35,13 @@ class SearcherTest
                 "\n";
 
 
-        int[] positionOfCharactersInString = new Searcher().getPositionOfCharactersInString(textToFindCharactersIn, charactersToFind);
+        int[] positionOfCharactersInString = new Searcher().getPositionOfCharactersInString(textToFindCharactersIn, charactersToFind, false);
 
         StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i < positionOfCharactersInString.length; i++)
+        for (int aPositionOfCharactersInString : positionOfCharactersInString)
         {
-            builder.append(positionOfCharactersInString[i]).append(" ");
+            builder.append(aPositionOfCharactersInString).append(" ");
         }
 
         System.out.println(builder.toString());

@@ -2,8 +2,14 @@ package app;
 
 class Searcher
 {
-    int[] getPositionOfCharactersInString(String text, String searchableCharacters)
+    int[] getPositionOfCharactersInString(String text, String searchableCharacters, boolean caseSensitive)
     {
+        if (!caseSensitive)
+        {
+            text = text.toLowerCase();
+            searchableCharacters = searchableCharacters.toLowerCase();
+        }
+
         int[] ints = new int[searchableCharacters.length()];
         char[] chars = searchableCharacters.toLowerCase().toCharArray();
 
